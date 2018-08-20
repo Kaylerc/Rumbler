@@ -37,7 +37,7 @@ end
 
 get '/logout' do
   session[:user] = nil
-  p "Successfully Logged out!"
+  erb :logout
 end
 
 
@@ -52,14 +52,33 @@ post '/signup' do
     first_name: params['firstname'],
     last_name: params['lastname'],
     password: params['password'],
-    username: params['username']
-    # bday: params['bday']
+    username: params['username'],
+    birthday: params['birthday']
   )
   user.save
   redirect '/'
 end
 
+get '/delete' do
+  erb :delete
+end
 
+post '/delete' do
+  'Your profile has been deleted'
+end
+
+get '/posts' do
+  post = Post.new(
+    title: params['title'],
+    content: params['content'],
+    content2: params['url'],
+    owner: params['user_id']
+  )
+  post.save
+  redirect :timeline
+
+  erb :posts
+end
 
 
 require './models'

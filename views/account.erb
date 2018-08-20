@@ -1,7 +1,19 @@
 <h1> My Account </h1>
 
 <% if session[:user] == nil %>
-  <p> No one is logged in</p>
+  <p> Invalid login</p>
 <% elsif session[:user] != nil %>
   <p> Welcome back!, <%= session[:user].first_name %></p>
+  <P id=profile> Profile</p>
+    First Name: <%= session[:user].first_name %><br>
+    Last Name: <%= session[:user].last_name %><br>
+    Username: <%= session[:user].username %><br>
+    Password: <%= session[:user].password %><br>
+    Email: <%= session[:user].email %><br>
+    Birthday <%= session[:user].birthday %><br>
   <% end %>
+
+
+  <a href="/posts">Create a new post</a>
+<!-- <a href="/login">Edit Account</a> -->
+<a href="/delete">Cancel Account</a>
