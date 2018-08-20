@@ -63,21 +63,29 @@ get '/delete' do
   erb :delete
 end
 
-post '/delete' do
-  'Your profile has been deleted'
+# post '/delete' do
+#   User.destroy(session[:user_id])
+#   session[:user_id] == nil
+#   'Your profile has been deleted'
+# end
+
+
+get '/post' do
+  erb :post
 end
 
-get '/posts' do
-  post = Post.new(
+
+post '/post' do
+
+  @post = Post.new(
     title: params['title'],
+    image_url: params['url'],
     content: params['content'],
-    content2: params['url'],
-    owner: params['user_id']
+    username: params['username']
   )
-  post.save
+  @post.save
   redirect :timeline
 
-  erb :posts
 end
 
 

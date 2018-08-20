@@ -11,4 +11,11 @@
       @password = Password.create(new_password)
       self.password_hash = @password
     end
+    has_many :posts
   end
+
+
+class Post < ActiveRecord::Base
+  belongs_to :user
+
+end
