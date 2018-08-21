@@ -51,7 +51,7 @@ post '/signup' do
   p params
   user = User.new(
     email: params['email'],
-    first_name: params['firstname'],
+    firstname: params['firstname'],
     last_name: params['lastname'],
     password: params['password'],
     username: params['username'],
