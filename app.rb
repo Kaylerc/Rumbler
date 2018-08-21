@@ -2,9 +2,10 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'securerandom'
 enable :sessions
+require 'active_record'
 
-set :database, "sqlite3:rumbler.sqlite3"
-
+# set :database, "sqlite3:rumbler.sqlite3"
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
 
 get '/' do
