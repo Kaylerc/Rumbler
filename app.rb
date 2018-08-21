@@ -65,11 +65,14 @@ get '/delete' do
   erb :delete
 end
 
+
 post '/delete' do
-  User.destroy(session[:user_id])
-  session[:user_id] == nil
-  'Your profile has been deleted'
+  @user = User.find(session[:user_id])
+  @user.destroy
+  session.clear
+  redirect "/finaldelete"
 end
+
 
 
 get '/post' do

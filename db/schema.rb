@@ -17,14 +17,15 @@ ActiveRecord::Schema.define(version: 2018_08_20_043326) do
     t.string "content"
     t.string "image_url"
     t.string "username"
+    t.integer "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer "likes"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
+    t.string "firstname"
+    t.string "lastname"
     t.string "email"
     t.string "username"
     t.string "password_hash"
