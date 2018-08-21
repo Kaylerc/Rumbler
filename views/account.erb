@@ -8,7 +8,6 @@
     First Name: <%= session[:user].first_name %><br>
     Last Name: <%= session[:user].last_name %><br>
     Username: <%= session[:user].username %><br>
-    Password: <%= session[:user].password %><br>
     Email: <%= session[:user].email %><br>
     Birthday <%= session[:user].birthday %><br>
   <% end %>
@@ -17,3 +16,12 @@
   <a href="/post">Create a new post</a>
 <!-- <a href="/login">Edit Account</a> -->
 <a href="/delete">Cancel Account</a>
+
+
+
+<% $all_post.each do |post| %>
+
+<%= post.title %>
+<%= post.image_url %>
+<%= post.content %>
+ <% end %>

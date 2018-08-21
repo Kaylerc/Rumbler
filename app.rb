@@ -6,7 +6,9 @@ enable :sessions
 set :database, "sqlite3:rumbler.sqlite3"
 
 
+
 get '/' do
+  $all_post = Post.all
   erb :home
 end
 
@@ -63,11 +65,11 @@ get '/delete' do
   erb :delete
 end
 
-# post '/delete' do
-#   User.destroy(session[:user_id])
-#   session[:user_id] == nil
-#   'Your profile has been deleted'
-# end
+post '/delete' do
+  User.destroy(session[:user_id])
+  session[:user_id] == nil
+  'Your profile has been deleted'
+end
 
 
 get '/post' do
@@ -77,16 +79,27 @@ end
 
 post '/post' do
 
-  @post = Post.new(
+  post = Post.new(
     title: params['title'],
     image_url: params['url'],
     content: params['content'],
     username: params['username']
+    # owner: params['user_id']
   )
-  @post.save
-  redirect :timeline
+  post.save
+  redirect :account
+
+  @title = post.title
+  @url = post.image_url
+  @content = post.content
+
 
 end
 
+
+
+get '/timeline' do
+  'timeline'
+end
 
 require './models'
