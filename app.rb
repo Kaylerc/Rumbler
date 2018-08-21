@@ -2,10 +2,10 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'securerandom'
 enable :sessions
-require 'active_record'
+# require 'active_record'
 
-# set :database, "sqlite3:rumbler.sqlite3"
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+set :database, "sqlite3:rumbler.sqlite3"
+# ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
 
 
 get '/' do
@@ -14,14 +14,22 @@ get '/' do
 end
 
 
+
+
 get '/account' do
+post_user_id = session[:user].firstname
+p @login_post = Post.where(user_id:post_user_id)
   erb :account
 end
+
+
 
 
 get '/login' do
   erb :login
 end
+
+
 
 
 post '/login' do
@@ -38,6 +46,8 @@ post '/login' do
 end
 
 
+
+
 get '/logout' do
   session[:user] = nil
   erb :logout
@@ -48,12 +58,14 @@ get '/signup' do
   erb :signup
 end
 
+
+
 post '/signup' do
   p params
   user = User.new(
     email: params['email'],
     firstname: params['firstname'],
-    last_name: params['lastname'],
+    lastname: params['lastname'],
     password: params['password'],
     username: params['username'],
     birthday: params['birthday']
@@ -62,18 +74,26 @@ post '/signup' do
   redirect '/'
 end
 
+
+
+
 get '/delete' do
+  @user = User.find_by(session[:id])
+  p "====="
+  p @user
+  p "====="
   erb :delete
 end
 
 
-post '/delete' do
-  @user = User.find(session[:user_id])
-  @user.destroy
-  session.clear
-  redirect "/finaldelete"
-end
 
+
+post '/delete' do
+  @user = User.find(session[:user].id).destroy
+  p @user
+  session.clear
+  redirect '/'
+end
 
 
 get '/post' do
@@ -82,16 +102,19 @@ end
 
 
 post '/post' do
-
+  @user = User.find_by(session[:id])
+  @username = User.find(session[:user].id).username
   post = Post.new(
     title: params['title'],
     image_url: params['url'],
     content: params['content'],
-    username: params['username']
-    # owner: params['user_id']
+    user_id: session[:user].username,
+    username: @username
+    # user_id: @user.id
+
   )
   post.save
-  redirect :account
+  redirect '/timeline'
 
   @title = post.title
   @url = post.image_url
@@ -103,7 +126,8 @@ end
 
 
 get '/timeline' do
-  'timeline'
+  $all_post = Post.all
+  erb :timeline
 end
 
 require './models'

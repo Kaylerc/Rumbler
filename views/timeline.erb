@@ -1,0 +1,9 @@
+<div>
+<% $all_post.each do |post| %>
+
+<%= post.username %><br>
+<%= post.title %><br>
+<img src="<%= post.image_url %>"><br><br>
+<%= post.content %><br><br>
+ <% end %>
+</div>

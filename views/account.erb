@@ -3,10 +3,10 @@
 <% if session[:user] == nil %>
   <p> Invalid login</p>
 <% elsif session[:user] != nil %>
-  <p> Welcome back!, <%= session[:user].first_name %></p>
-  <P id=profile> Profile</p>
-    First Name: <%= session[:user].first_name %><br>
-    Last Name: <%= session[:user].last_name %><br>
+  <p> Welcome back!, <%= session[:user].firstname %></p>
+  <p id=profile> Profile</p>
+    First Name: <%= session[:user].firstname %><br>
+    Last Name: <%= session[:user].lastname %><br>
     Username: <%= session[:user].username %><br>
     Email: <%= session[:user].email %><br>
     Birthday <%= session[:user].birthday %><br>
@@ -18,10 +18,12 @@
 <a href="/delete">Cancel Account</a>
 
 
-
+<div>
 <% $all_post.each do |post| %>
 
-<%= post.title %>
-<%= post.image_url %>
-<%= post.content %>
- <% end %>
+  <%= post.username %><br>
+  <%= post.title %><br>
+  <img src="<%= post.image_url %>"><br>
+  <%= post.content %><br><br>
+  <% end %>
+</div>
