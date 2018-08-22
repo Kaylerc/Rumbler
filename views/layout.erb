@@ -2,19 +2,22 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <!-- <link type="text/css" rel="stylesheet" href='main.css' /> -->
     <title></title>
   </head>
   <body>
     <ul>
+
+      <!-- <% if session[:user] == nil %>
       <li><a href="/">Home</a></li>
-      <% if session[:user] == nil %>
       <li><a href="/signup">Sign up</a></li>
-      <li><a href="/login">Log in</a></li>
+      <li style="float:right"><a class="active" href="/login">Log in</a></li>
         <% elsif session[:user] != nil %>
-      <li><a href="/account"><%= session[:user].email %></a></li>
-      <li><a href="/logout">Log out</a></li>
+
+      <li>Logged in as: <a href="/account"><%= session[:user].email %></a></li>
+      <li style="float:right"><a class="active" href="/">Log out</a></li>
       <% end %>
-    </ul>
+    </ul> -->
     <%= yield %>
   </body>
 </html>

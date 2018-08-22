@@ -18,7 +18,7 @@ end
 
 get '/account' do
 post_user_id = session[:user].firstname
-p @login_post = Post.where(user_id:post_user_id)
+# p @login_post = Post.where(user_id:post.user_id)
   erb :account
 end
 
@@ -41,17 +41,17 @@ post '/login' do
     redirect :account
   else
     p "Your email or password is incorrect"
-    redirect '/'
+    redirect '/account'
   end
 end
 
 
 
 
-get '/logout' do
-  session[:user] = nil
-  erb :logout
-end
+# get '/logout' do
+#   session[:user] = nil
+#   erb :logout
+# end
 
 
 get '/signup' do
@@ -69,9 +69,10 @@ post '/signup' do
     password: params['password'],
     username: params['username'],
     birthday: params['birthday']
-  )
+    )
   user.save
-  redirect '/'
+  session[:user] = user
+  redirect '/account'
 end
 
 
@@ -103,14 +104,16 @@ end
 
 post '/post' do
   @user = User.find_by(session[:id])
+  user = session[:user].id
+  @user_id = User.find_by(id: user)
   @username = User.find(session[:user].id).username
   post = Post.new(
     title: params['title'],
     image_url: params['url'],
     content: params['content'],
-    user_id: session[:user].username,
-    username: @username
-    # user_id: @user.id
+    user_id: session[:user].id,
+    username: session[:user].username
+
 
   )
   post.save
@@ -126,7 +129,8 @@ end
 
 
 get '/timeline' do
-  $all_post = Post.all
+  $all_post = Post.all.reverse
+  # $user_post = Post.session[:user]
   erb :timeline
 end
 
