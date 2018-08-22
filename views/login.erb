@@ -1,8 +1,13 @@
-<h2> Login </h2>
-<p> New to our service? Click <a href="/signup"> here</a> to sign up</p>
+
+
+
+<div id="logform">
+  <h2> Login </h2>
+  <p> New to our service?</p>
+  <p>Click <a href="/signup"> here</a> to sign up</p>
   <form action="/login" method="post">
-    <label>Email</label>
-    <input type="email" name="email"><br>
-    <label>Password</label>
-    <input type="password" name="password"><br>
-    <input type="submit" name="Login"><br>
+    <input type="email" placeholder="Email" name="email" required><br>
+    <input type="password" placeholder="Password" name="password"><br>
+    <input type="submit" value="Login"><br>
+  </form>
+</div>

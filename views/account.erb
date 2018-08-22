@@ -1,42 +1,56 @@
-<% if session[:user] == nil %>
+  <!-- <body style="background-image: url('images/allback9.jpg'); background-repeat:no-repeat; background-attachment: fixed; "> -->
+
+<ul>
+ <% if session[:user] == nil %>
 <li><a href="/">Home</a></li>
 <li><a href="/signup">Sign up</a></li>
 <li style="float:right"><a class="active" href="/login">Log in</a></li>
   <% elsif session[:user] != nil %>
-
 <li>Logged in as: <a href="/account"><%= session[:user].email %></a></li>
 <li style="float:right"><a class="active" href="/">Log out</a></li>
 <% end %>
 </ul>
 
 
+<div >
+  <div class="accttop">
+        <div id="profile">
+      <h1 id="act"> My Account </h1>
+    <% if session[:user] == nil %>
+      <p> Invalid login</p>
+    <% elsif session[:user] != nil %>
+      <p> Welcome back!, <%= session[:user].firstname %></p>
+      <p id=profile> My Profile</p>
+        First Name: <%= session[:user].firstname %><br>
+        Last Name: <%= session[:user].lastname %><br>
+        Username: <%= session[:user].username %><br>
+        Email: <%= session[:user].email %><br>
+        Birthday <%= session[:user].birthday %><br>
+      <% end %>
+      <a href="/post">Create a new post</a>
+      <a href="/delete">Cancel Account</a>
+      <a href='/timeline'> Timeline</a>
 
-<h1> My Account </h1>
-
-<% if session[:user] == nil %>
-  <p> Invalid login</p>
-<% elsif session[:user] != nil %>
-  <p> Welcome back!, <%= session[:user].firstname %></p>
-  <p id=profile> Profile</p>
-    First Name: <%= session[:user].firstname %><br>
-    Last Name: <%= session[:user].lastname %><br>
-    Username: <%= session[:user].username %><br>
-    Email: <%= session[:user].email %><br>
-    Birthday <%= session[:user].birthday %><br>
-  <% end %>
+    </div>
+  </div>
+</div>
 
 
-  <a href="/post">Create a new post</a>
-<!-- <a href="/login">Edit Account</a> -->
-<a href="/delete">Cancel Account</a>
 
 
 <div>
-<% $all_post.each do |post| %>
-
-  <%= post.username %><br>
-  <%= post.title %><br>
-  <img src="<%= post.image_url %>"><br>
-  <%= post.content %><br><br>
-  <% end %>
+    <container>
+      <div class="tl_grid">
+          <div>
+      <% @login_post.reverse.each do |post| %>
+      <div class="cells">
+      <%= post.username %><br>
+      <%= post.title %><br>
+      <img src="<%= post.image_url %>" style="height:70%; width:100%;"><br>
+      <%= post.content %><br><br>
+    </div>
+      <% end %>
+    </div>
+    </div>
+  </container>
 </div>

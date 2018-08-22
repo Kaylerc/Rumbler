@@ -1,12 +1,19 @@
-<h2>Are you rure you want to cancel your account?  By doing so you will no longer have access to you original profile or posts.</h2>
+
+<h2 class="deltext">Are you rure you want to cancel your account? <br>By doing so you will no longer have access to you original profile or posts.</h2>
 
 
 
-<form action="/delete" method="post">
-  <!-- <input type="hidden" name="_method" value ="DELETE"> -->
-  <input type="submit" value="Yes I'm sure, cancel my account">
-</form>
 
+<div >
+  <div class="accttop">
+        <div>
+          <form action="/delete" method="post">
+            <input type="submit" value="Yes I'm sure, cancel my account">
+          </form>
 
-
-<a href="/account">No!! my bad..I made a mistake</a>
+          <form action="/account" method="get">
+            <input type="submit" value="No!! my bad..I made a mistake">
+          </form>
+    </div>
+  </div>
+</div>

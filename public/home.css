@@ -42,7 +42,7 @@ li a:hover {
 
 html {
   /* <!-- Photo by Houcine Ncib on Unsplash --> */
-  background-image: url('images/homeback3.jpg');
+  background-image: url('images/homeback3bw.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -63,7 +63,7 @@ html {
 .hbutton {
     background-color: transparent;
     transition-duration: 0.4s;
-    background-color: purple;
+    background-color: #FF1493;
     border: none;
     color: white;
     padding: 16px 32px;
@@ -77,7 +77,7 @@ html {
 }
 
 .hbutton:hover {
-    background-color: purple;
+    background-color: #FF1493;
     color: white;
 }
 
@@ -85,15 +85,4 @@ html {
 .home_grid {
   display: grid;
   grid-template: 100% / 50% 50%;
-}
-
-
-#hsignup {
-  margin-left: 400px;
-  padding: 20px;
-}
-
-#hlogin {
-  margin-left: 127px;
-  padding: 20px;
 }

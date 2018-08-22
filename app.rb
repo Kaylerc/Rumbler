@@ -18,7 +18,10 @@ end
 
 get '/account' do
 post_user_id = session[:user].firstname
-# p @login_post = Post.where(user_id:post.user_id)
+@user = User.find_by(session[:id])
+p @login_post = Post.select{
+  |po|  po.username == session[:user].username
+}
   erb :account
 end
 
@@ -133,5 +136,21 @@ get '/timeline' do
   # $user_post = Post.session[:user]
   erb :timeline
 end
+
+
+
+post '/timeline' do
+  @search = params['username']
+  @user_post = Post.select{
+    |up| up.username == "#{@search}"
+  }
+  redirect :individ
+end
+
+
+get '/individ' do
+  erb :individ
+end
+
 
 require './models'

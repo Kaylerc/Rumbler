@@ -1,3 +1,9 @@
+<link type="text/css" rel="stylesheet" href='mail.css' />
+<body style="background-image: url('images/allback9.jpg'); background-repeat:no-repeat; background-attachment: fixed; ">
+
+
+<ul>
+
 <% if session[:user] == nil %>
 <li><a href="/">Home</a></li>
 <li><a href="/signup">Sign up</a></li>
@@ -9,12 +15,44 @@
 <% end %>
 </ul>
 
-<div>
-<% $all_post.each do |post| %>
-
-<%= post.username %><br>
-<%= post.title %><br>
-<img src="<%= post.image_url %>"><br><br>
-<%= post.content %><br><br>
- <% end %>
+<div id="searchbar">
+<form action="/individ" method="puts">
+  <input type="text" name="username" placeholder="username">
+    <input type="submit" value="Find User"><br>
+</form>
 </div>
+
+
+
+
+
+
+<div>
+    <container>
+      <div class="tl_grid">
+          <div>
+          <% $all_post.each do |post| %>
+          <div class="cells">
+          <form action="/individ" method="puts"><input type="submit" name="username" value="<%= post.username %>"></form><br>
+          <%= post.title %><br>
+          <img src="<%= post.image_url %>" style="height:70%; width:100%;"><br><br>
+          <%= post.content %><br><br>
+      </div>
+        <% end %>
+      </div>
+      </div>
+    </container>
+</div>
+
+
+<!-- <div class="ui card">
+  <a class="image" href="#">
+    <img src="/images/avatar/large/steve.jpg">
+  </a>
+  <div class="content">
+    <a class="header" href="#">Steve Jobes</a>
+    <div class="meta">
+      <a>Last Seen 2 days ago</a>
+    </div>
+  </div>
+</div> -->

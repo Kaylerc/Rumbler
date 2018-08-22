@@ -1,3 +1,8 @@
+  <!-- <body style="background-image: url('images/allback9.jpg'); background-repeat:no-repeat; background-attachment: fixed; "> -->
+
+
+
+<ul>
 <% if session[:user] == nil %>
 <li><a href="/">Home</a></li>
 <li><a href="/signup">Sign up</a></li>
@@ -9,11 +14,17 @@
 <% end %>
 </ul>
 
-<form action="/post" method="post">
-  <input type="text" name="title" placeholder="title">
-  <!-- <input type="text" placeholder="Username" name="username"><br> -->
-  <input type="integer"
-  <input type="text" placeholder="content" name="content" ><br>
-  <input type="url" placeholder="Add image" name="url"><br>
-  <input type="submit" value="Post"><br>
-</form>
+
+<div >
+  <div class="accttop">
+        <div id="profile">
+          <form action="/post" method="post">
+            <input type="text" name="title" placeholder="title">
+            <!-- <input type="text" placeholder="Username" name="username"><br> -->
+            <input type="text" placeholder="content" name="content" ><br>
+            <input type="url" placeholder="Add image" name="url"><br>
+            <input type="submit" value="Post"><br>
+          </form>
+    </div>
+  </div>
+</div>

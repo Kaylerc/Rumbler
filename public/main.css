@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 ul {
@@ -31,7 +32,104 @@ li a {
     text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
+
 li a:hover {
     background-color: #111;
+}
+
+.tl_grid {
+  width: 90%;
+  display: grid;
+  /* padding: 25px; */
+  grid-template: auto/60%;
+  /* border-radius: 20px; */
+  /* background-color: rgb(201, 109, 139); */
+  /* grid-gap: 40px; */
+  margin-left: 23.5%;
+  align-content: center;
+
+
+}
+
+.cells {
+  overflow: scroll;
+  padding: 1em;
+  border: black 1px solid;
+  height: 75vh;
+  text-align: center;
+  /* border-radius: 12px; */
+  background-color: rgb(230, 219, 204, 0.5);
+  /* opacity: 0.5 */
+
+}
+
+/* body {
+  background-image: url('images/allback2.jpg');
+  background-repeat:no-repeat;
+} */
+
+#hsignup {
+  margin-left: 375px;
+  padding: 20px;
+}
+
+#hlogin {
+  margin-left: 127px;
+  padding: 20px;
+}
+
+.accttop {
+  padding-left: 34%;
+  padding-right: 34%;
+  text-align: center;
+
+}
+/*
+#profile {
+  margin-left: 300px;
+} */
+
+
+#sign {
+  padding-top: 20px;
+  margin-left: 185px;
+  padding-left: 300px;
+}
+
+#logform {
+  padding-top: 20px;
+  margin-left: 185px;
+  padding-left: 300px;
+}
+
+
+#searchbar {
+  text-align: center;
+}
+
+#mygrid {
+  width: 90%;
+  display: grid;
+  /* padding: 25px; */
+  grid-template: auto/60%;
+  /* border-radius: 20px; */
+  /* background-color: rgb(201, 109, 139); */
+  /* grid-gap: 40px; */
+  margin-left: 23.5%;
+  align-content: center;
+}
+
+
+.mygridbox {
+  border: 1px solid black;
+}
+
+
+#profile {
+  background-color: rgb(230, 219, 204);
+}
+
+.deltext {
+  padding-top: 15%;
+  text-align:center;
 }

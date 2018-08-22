@@ -1,6 +1,7 @@
 class CreatePostsTable < ActiveRecord::Migration[5.2]
   def change
     create_table :posts do |t|
+      t.belongs_to :users, index: true
       t.string :title
       t.string :content
       t.string :image_url
