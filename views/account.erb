@@ -19,7 +19,7 @@
             <% if session[:user] == nil %>
           <p> Invalid login</p>
             <% elsif session[:user] != nil %>
-          <p> Welcome back!, <%= session[:user].firstname %></p>
+          <p> Welcome back, <%= session[:user].firstname %>!!</p>
 
         <div>
           <p id=profile> My Profile</p>

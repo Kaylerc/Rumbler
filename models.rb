@@ -11,7 +11,7 @@
       @password = Password.create(new_password)
       self.password_hash = @password
     end
-    has_many :posts, dependent: :destroy 
+    has_many :posts, dependent: :destroy
   end
 
 
