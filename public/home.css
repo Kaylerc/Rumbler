@@ -1,56 +1,20 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-    position: sticky;
-    top: 0;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
-}
-
-
-/* HOMEPAGE */
-
-
 html {
   /* <!-- Photo by Houcine Ncib on Unsplash --> */
-  background-image: url('images/homeback3bw.jpg');
+  background-image: url('images/homeback3bw.jpg') !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* background-color: pink; */
 }
 
+#hsignup {
+  margin-left: 375px;
+  padding: 20px;
+}
 
-
+#hlogin {
+  margin-left: 127px;
+  padding: 20px;
+}
 
 .htitle {
   vertical-align: 50%;
@@ -62,7 +26,7 @@ html {
 
 .hbutton {
     background-color: transparent;
-    transition-duration: 0.4s;
+
     background-color: #FF1493;
     border: none;
     color: white;
@@ -72,13 +36,14 @@ html {
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    transition-duration: 0.4s;
     cursor: pointer;
 }
 
 .hbutton:hover {
-    background-color: #FF1493;
+    background-color: red;
     color: white;
+    transition-duration: 0.4s;
+
 }
 
 

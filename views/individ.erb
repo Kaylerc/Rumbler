@@ -24,6 +24,9 @@
             <% user_post.each do |post| %>
             <div class="cells">
             <h1><%= post.username %> </h1>
+            <%= post.title %><br>
+            <img src="<%= post.image_url %>" style="height:70%; width:100%;"><br>
+            <%= post.content %><br><br>
             </div>
             <% end %>
           </div>

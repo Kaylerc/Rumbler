@@ -1,18 +1,25 @@
+:root {
+  --boxes: wheat;
+}
+
+
+
+html {
+  background-image: url('images/allback9.jpg');
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
 }
 
 ul {
     position: sticky;
     top: 0;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -22,78 +29,73 @@ ul {
 
 li {
     float: left;
+    color: var(--boxes);
+    font-weight: bold;
 }
 
 li a {
     display: block;
-    color: white;
+    color: var(--boxes);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
-
 li a:hover {
     background-color: #111;
+}
+
+.accttop {
+  padding-bottom: 60px;
+  padding-top: 25px;
+  text-align: center;
+}
+
+#profile {
+  background-color: var(--boxes);
+  padding-top: 26px;
+  padding-bottom: 22px;
+}
+
+.acct-grid {
+  display:grid;
+  grid-template-columns: 30% 70%;
+
+}
+
+.left_grid {
+
 }
 
 .tl_grid {
   width: 90%;
   display: grid;
-  /* padding: 25px; */
   grid-template: auto/60%;
-  /* border-radius: 20px; */
-  /* background-color: rgb(201, 109, 139); */
-  /* grid-gap: 40px; */
   margin-left: 23.5%;
   align-content: center;
-
-
 }
 
 .cells {
-  overflow: scroll;
   padding: 1em;
   border: black 1px solid;
-  height: 75vh;
+  height: 69vh;
   text-align: center;
-  /* border-radius: 12px; */
-  background-color: rgb(230, 219, 204, 0.5);
-  /* opacity: 0.5 */
-
+  background-color: rgb(245, 222, 179, 0.75);
+  background: opacity .5;
+  margin-top: 25px;
+  box-shadow: 10px 10px 5px rgb(110, 16, 16);
 }
 
-/* body {
-  background-image: url('images/allback2.jpg');
-  background-repeat:no-repeat;
-} */
 
-#hsignup {
-  margin-left: 375px;
-  padding: 20px;
-}
-
-#hlogin {
-  margin-left: 127px;
-  padding: 20px;
-}
-
-.accttop {
-  padding-left: 34%;
-  padding-right: 34%;
-  text-align: center;
-
-}
-/*
-#profile {
-  margin-left: 300px;
-} */
-
-
-#sign {
+.signlog {
   padding-top: 20px;
-  margin-left: 185px;
-  padding-left: 300px;
+  margin-left: 333px;
+  padding-left: 200px;
+  background-color: wheat;
+  margin-right: 333px;
+  padding-bottom: 71px;
+  margin-top: 65px;
+  border-radius: 25px;
 }
 
 #logform {
@@ -102,6 +104,22 @@ li a:hover {
   padding-left: 300px;
 }
 
+.post-box {
+  margin-left: 333px;
+  padding-left: 0px;
+  background-color: wheat;
+  margin-right: 333px;
+  padding-bottom: 0px;
+  margin-top: 65px;
+  border-radius: 25px;
+  padding-top: 98px;
+}
+
+#postform {
+  padding-top: 39px;
+  margin-left: -314px;
+  padding-left: 300px;
+}
 
 #searchbar {
   text-align: center;
@@ -110,26 +128,35 @@ li a:hover {
 #mygrid {
   width: 90%;
   display: grid;
-  /* padding: 25px; */
   grid-template: auto/60%;
-  /* border-radius: 20px; */
-  /* background-color: rgb(201, 109, 139); */
-  /* grid-gap: 40px; */
   margin-left: 23.5%;
   align-content: center;
 }
-
 
 .mygridbox {
   border: 1px solid black;
 }
 
-
-#profile {
-  background-color: rgb(230, 219, 204);
-}
-
 .deltext {
-  padding-top: 15%;
+  padding-top: 4%;
   text-align:center;
+  color: red;
+  font-weight: bold;
+  font-size: 30px
 }
+
+#cancel {
+  color: red;
+}
+
+.delbox {
+  background-color: var(--boxes);
+  margin-left: 15%;
+  margin-right: 13%;
+  margin-top: 9%;
+  padding-bottom: 3%;
+  border-radius: 25px;
+}
+ #delbtns {
+   text-align: center;
+ }

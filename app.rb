@@ -13,27 +13,29 @@ get '/' do
   erb :home
 end
 
-
-
-
-get '/account' do
-post_user_id = session[:user].firstname
-@user = User.find_by(session[:id])
-p @login_post = Post.select{
-  |po|  po.username == session[:user].username
-}
-  erb :account
+get '/signup' do
+  erb :signup
 end
 
-
+post '/signup' do
+  p params
+  user = User.new(
+    email: params['email'],
+    firstname: params['firstname'],
+    lastname: params['lastname'],
+    password: params['password'],
+    username: params['username'],
+    birthday: params['birthday']
+    )
+  user.save
+  session[:user] = user
+  redirect '/'
+end
 
 
 get '/login' do
   erb :login
 end
-
-
-
 
 post '/login' do
   email = params['email']
@@ -48,49 +50,19 @@ post '/login' do
   end
 end
 
-
-
-
-# get '/logout' do
-#   session[:user] = nil
-#   erb :logout
-# end
-
-
-get '/signup' do
-  erb :signup
+get '/account' do
+  post_user_id = session[:user].firstname
+  @user = User.find_by(session[:id])
+  p @login_post = Post.select{
+    |po|  po.username == session[:user].username
+  }
+    erb :account
 end
-
-
-
-post '/signup' do
-  p params
-  user = User.new(
-    email: params['email'],
-    firstname: params['firstname'],
-    lastname: params['lastname'],
-    password: params['password'],
-    username: params['username'],
-    birthday: params['birthday']
-    )
-  user.save
-  session[:user] = user
-  redirect '/account'
-end
-
-
-
 
 get '/delete' do
   @user = User.find_by(session[:id])
-  p "====="
-  p @user
-  p "====="
   erb :delete
 end
-
-
-
 
 post '/delete' do
   @user = User.find(session[:user].id).destroy
@@ -99,11 +71,9 @@ post '/delete' do
   redirect '/'
 end
 
-
 get '/post' do
   erb :post
 end
-
 
 post '/post' do
   @user = User.find_by(session[:id])
@@ -116,19 +86,13 @@ post '/post' do
     content: params['content'],
     user_id: session[:user].id,
     username: session[:user].username
-
-
   )
   post.save
   redirect '/timeline'
-
   @title = post.title
   @url = post.image_url
   @content = post.content
-
-
 end
-
 
 
 get '/timeline' do
@@ -136,8 +100,6 @@ get '/timeline' do
   # $user_post = Post.session[:user]
   erb :timeline
 end
-
-
 
 post '/timeline' do
   @search = params['username']

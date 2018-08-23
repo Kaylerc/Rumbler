@@ -1,56 +1,61 @@
   <!-- <body style="background-image: url('images/allback9.jpg'); background-repeat:no-repeat; background-attachment: fixed; "> -->
 
 <ul>
- <% if session[:user] == nil %>
-<li><a href="/">Home</a></li>
-<li><a href="/signup">Sign up</a></li>
-<li style="float:right"><a class="active" href="/login">Log in</a></li>
+   <% if session[:user] == nil %>
+    <li><a href="/">Home</a></li>
+    <li><a href="/signup">Sign up</a></li>
+    <li style="float:right"><a class="active" href="/login">Log in</a></li>
   <% elsif session[:user] != nil %>
-<li>Logged in as: <a href="/account"><%= session[:user].email %></a></li>
-<li style="float:right"><a class="active" href="/">Log out</a></li>
-<% end %>
+    <li>Logged in as: <a href="/account"><%= session[:user].email %></a></li>
+    <li style="float:right"><a class="active" href="/">Log out</a></li>
+  <% end %>
 </ul>
 
 
-<div >
-  <div class="accttop">
-        <div id="profile">
-      <h1 id="act"> My Account </h1>
-    <% if session[:user] == nil %>
-      <p> Invalid login</p>
-    <% elsif session[:user] != nil %>
-      <p> Welcome back!, <%= session[:user].firstname %></p>
-      <p id=profile> My Profile</p>
-        First Name: <%= session[:user].firstname %><br>
-        Last Name: <%= session[:user].lastname %><br>
-        Username: <%= session[:user].username %><br>
-        Email: <%= session[:user].email %><br>
-        Birthday <%= session[:user].birthday %><br>
-      <% end %>
-      <a href="/post">Create a new post</a>
-      <a href="/delete">Cancel Account</a>
-      <a href='/timeline'> Timeline</a>
 
+<div class="acct-grid">
+  <div class="left_col">
+    <div>
+      <div class="accttop">
+        <div id="profile">
+            <% if session[:user] == nil %>
+          <p> Invalid login</p>
+            <% elsif session[:user] != nil %>
+          <p> Welcome back!, <%= session[:user].firstname %></p>
+
+        <div>
+          <p id=profile> My Profile</p>
+            First Name:  <%= session[:user].firstname %><br>
+            Last Name:   <%= session[:user].lastname %><br>
+            Username:   <%= session[:user].username %><br>
+            Email:  <%= session[:user].email %><br>
+            Birthday  <%= session[:user].birthday %><br>
+          <% end %><br>
+          <a href="/post">Create a new post</a>
+          <a href="/delete">Cancel Account</a>
+          <a href='/timeline'> Timeline</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-
-
-
-<div>
-    <container>
-      <div class="tl_grid">
+  <div>
+    <div>
+      <container>
+        <d  iv class="tl_grid">
           <div>
-      <% @login_post.reverse.each do |post| %>
-      <div class="cells">
-      <%= post.username %><br>
-      <%= post.title %><br>
-      <img src="<%= post.image_url %>" style="height:70%; width:100%;"><br>
-      <%= post.content %><br><br>
+          <% @login_post.reverse.each do |post| %>
+          <div class="cells">
+          <%= post.username %><br>
+          <%= post.title %><br><br>
+          <img src="<%= post.image_url %>" style="height:70%; width:100%;"><br><br>
+          <%= post.content %><br><br>
+          </div>
+          <% end %>
+          </div>
+        </div>
+      </container>
     </div>
-      <% end %>
-    </div>
-    </div>
-  </container>
+  </div>
 </div>
