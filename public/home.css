@@ -27,7 +27,7 @@ html {
 .hbutton {
     background-color: transparent;
 
-    background-color: #FF1493;
+    background-color: gray;
     border: none;
     color: white;
     padding: 16px 32px;
@@ -43,7 +43,6 @@ html {
     background-color: red;
     color: white;
     transition-duration: 0.4s;
-
 }
 
 

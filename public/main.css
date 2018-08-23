@@ -5,9 +5,10 @@
 
 
 html {
-  background-image: url('images/allback9.jpg');
+  background-image: url('images/bothtat2.jpeg');
   background-repeat:no-repeat;
   background-attachment: fixed;
+  background-size: cover;
 }
 
 body {
@@ -159,4 +160,8 @@ li a:hover {
 }
  #delbtns {
    text-align: center;
+ }
+
+#timelinebtn {
+  text-align: center;
  }
